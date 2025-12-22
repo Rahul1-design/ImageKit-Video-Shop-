@@ -1,26 +1,26 @@
-import { NextAuthOptions } from "next-auth";
-import CredentialsProvider from "next-auth/providers/credentials";
-import { connectToDatabase } from "./db";
-import User from "@/models/User";
-import bcrypt from "bcryptjs";
+import { NextAuthOptions } from 'next-auth';
+import CredentialsProvider from 'next-auth/providers/credentials';
+import { connectToDatabase } from './db';
+import User from '@/models/User';
+import bcrypt from 'bcryptjs';
 
 export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
-      name: "Credentials",
+      name: 'Credentials',
       credentials: {
-        email: { label: "Email", type: "text" },
-        password: { label: "Password", type: "password" },
+        email: { label: 'Email', type: 'text' },
+        password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
-          throw new Error("Missing email or password");
+          throw new Error('Missing email or password');
         }
         try {
           await connectToDatabase();
           const user = await User.findOne({ email: credentials.email });
           if (!user) {
-            throw new Error("No user found");
+            throw new Error('No user found');
           }
 
           const isValid = await bcrypt.compare(
@@ -29,7 +29,7 @@ export const authOptions: NextAuthOptions = {
           );
 
           if (!isValid) {
-            throw new Error("Invalid Password");
+            throw new Error('Invalid Password');
           }
 
           return {
@@ -57,11 +57,11 @@ export const authOptions: NextAuthOptions = {
     },
   },
   pages: {
-    signIn: "/login",
-    error: "/login",
+    signIn: '/login',
+    error: '/login',
   },
   session: {
-    strategy: "jwt",
+    strategy: 'jwt',
     maxAge: 30 * 24 * 60 * 60,
   },
   secret: process.env.NEXTAUTH_SECRET,
