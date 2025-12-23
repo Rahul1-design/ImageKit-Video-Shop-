@@ -38,27 +38,49 @@ const page = () => {
         }
     }
     return (
-        <div className=''>
-            <h1>Register</h1>
+        <div className="container mx-auto px-4 py-10">
+            <h1 className="font-bold text-3xl mb-6 text-center">Register</h1>
+
             <form onSubmit={handleSubmit}>
-                <div className=''>
+                <div className="max-w-md mx-auto space-y-3">
+                    <input
+                        className="input input-accent w-full"
+                        type="email"
+                        placeholder="Enter your email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
 
-                    <input className='input input-accent ' type="email" placeholder='Enter your email max-w-xs' value={email} onChange={(e) => setEmail(e.target.value)} />
+                    <input
+                        className="input input-accent w-full"
+                        type="password"
+                        placeholder="Enter your password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
 
-                    <input className='input input-accent max-w-xs' type="password" placeholder='Enter your password' value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <input
+                        className="input input-accent w-full"
+                        type="password"
+                        placeholder="Confirm password"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                    />
 
-                    <input className='input input-accent max-w-xs' type="password" placeholder='Confirm Password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+                    <button className="btn btn-primary w-full">
+                        Register
+                    </button>
                 </div>
-
-                <button className='btn' type='submit'>Register</button>
             </form>
-            <div>
-                <p>
-                    Already have an account?
-                    <a href="/login">Login</a>
-                </p>
-            </div>
+
+            <p className="text-center mt-4">
+                Already have an account?{" "}
+                <a href="/login" className="text-primary font-semibold hover:underline">
+                    Login
+                </a>
+            </p>
         </div>
+
     )
 }
 
