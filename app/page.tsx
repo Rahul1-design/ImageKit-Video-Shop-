@@ -1,3 +1,4 @@
+"use client"
 import { apiClient } from '@/lib/api-client';
 import { IVideo } from '@/models/Video';
 import Image from 'next/image';
