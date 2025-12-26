@@ -67,7 +67,7 @@ const page = () => {
                         onChange={(e) => setConfirmPassword(e.target.value)}
                     />
 
-                    <button className="btn btn-primary w-full">
+                    <button type="submit" className="btn btn-primary w-full">
                         Register
                     </button>
                 </div>
