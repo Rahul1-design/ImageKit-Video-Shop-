@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ImageKit Video Shop
 
-## Getting Started
+A modern full-stack video sharing platform built with Next.js, featuring user authentication, video upload capabilities, and cloud storage integration with ImageKit.
 
-First, run the development server:
+## 🎯 Features
 
+- **User Authentication** - Secure registration and login system with NextAuth.js
+- **Video Upload & Management** - Upload videos and thumbnails with real-time progress tracking
+- **Cloud Storage** - Integrated with ImageKit for optimized video delivery and transformation
+- **Responsive Design** - Mobile-first UI built with Tailwind CSS and DaisyUI
+- **Protected Routes** - Middleware-based route protection for authenticated users
+- **Video Feed** - Responsive grid layout displaying all uploaded videos
+- **Optimized Performance** - Server-side rendering and API route handlers
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **Next.js 15** - React framework with App Router
+- **React 19** - UI library
+- **TypeScript** - Type-safe development
+- **Tailwind CSS** - Utility-first CSS framework
+- **DaisyUI** - Tailwind CSS component library
+
+### Backend
+- **Next.js API Routes** - Serverless API endpoints
+- **MongoDB** - NoSQL database for data storage
+- **Mongoose** - MongoDB object modeling
+- **NextAuth.js** - Authentication solution
+- **bcryptjs** - Password hashing
+
+### Cloud Services & Tools
+- **ImageKit** - Media storage and transformation
+- **Vercel** (deployment ready) - Hosting platform
+
+### Development Tools
+- **ESLint** - Code linting
+- **Prettier** - Code formatting
+
+## 📦 Installation
+
+1. **Clone the repository**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+   git clone https://github.com/YOUR_USERNAME/imagekit-video-shop.git
+   cd imagekit-video-shop
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Install dependencies**
+```bash
+   npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **Set up environment variables**
+   
+   Create a `.env` file in the root directory:
+```env
+   # MongoDB
+   MONGODB_URI=your_mongodb_connection_string
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   # NextAuth
+   NEXTAUTH_SECRET=your_nextauth_secret
 
-## Learn More
+   # ImageKit
+   NEXT_PUBLIC_PUBLIC_KEY=your_imagekit_public_key
+   IMAGEKIT_PRIVATE_KEY=your_imagekit_private_key
+   NEXT_PUBLIC_URL_ENDPOINT=your_imagekit_url_endpoint
+```
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. **Run the development server**
+```bash
+   npm run dev
+```
